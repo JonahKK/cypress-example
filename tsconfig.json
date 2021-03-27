@@ -1,0 +1,30 @@
+{
+    "include": ["cypress"],
+    "compilerOptions": {
+      "experimentalDecorators": true,
+      "module": "commonjs",
+      "target": "ES2016",
+      "outDir": "dist",
+      "rootDir": "src",
+      "strict": true,
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "baseUrl": "./",
+      "paths": {
+        "*": ["src/*", "node_modules/*"]
+      },
+      "types": ["cypress"],
+      "noImplicitAny": true,
+      "strictNullChecks": true,
+      "strictFunctionTypes": true,
+      "strictPropertyInitialization": true,
+      "noImplicitThis": true,
+      "alwaysStrict": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noImplicitReturns": true,
+      "noFallthroughCasesInSwitch": true,
+      "forceConsistentCasingInFileNames": true
+    }
+  }
+  
