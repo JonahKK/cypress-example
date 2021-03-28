@@ -37,6 +37,7 @@ describe('Personal details single trip tests', () => {
      * When I input my age.
      * Then validation error is displayed.
      */
+    
     [17,47].forEach(age =>{
         it(`Should display error for invalid age - ${age}`, () =>{
             PersonalDetailsSingleTrip.visit()
