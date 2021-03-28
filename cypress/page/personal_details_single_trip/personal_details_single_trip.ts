@@ -1,3 +1,5 @@
+import { SorryMessage } from "./sorry_message";
+
 export class PersonalDetailsSingleTrip {
     public static visit(): PersonalDetailsSingleTrip {
         cy.visit('personal-details-single-trip')
@@ -18,7 +20,10 @@ export class PersonalDetailsSingleTrip {
     }
 
     public writeAge(age: number): PersonalDetailsSingleTrip {
-        cy.get('[id="age"]').clear().type(age.toString());
+        cy.get('[id="age"]')
+        .clear()
+        .type(age.toString())
+        .blur();
         return this;
     }
 
@@ -32,14 +37,15 @@ export class PersonalDetailsSingleTrip {
         return this;
     }
 
-    public clickNextButtonWithMedicalCondition(){
-        cy.get('button').contains('Next').click();
+    public clickNextButtonWithMedicalCondition(): SorryMessage {
+        cy.get('button')
+        .contains('Next')
+        .click();
         return new SorryMessage();
+    }
+
+    public getAgeError(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get('[id="age-helper-text"]')
     }
 }
 
-class SorryMessage{
-    public assertMessageIsOpen(){
-        cy.contains('We aren’t able to offer cover to people with pre-existing medical conditions. We’re working hard to change this.').should('exist');
-    }
-}
